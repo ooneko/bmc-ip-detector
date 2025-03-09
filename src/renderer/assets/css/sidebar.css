@@ -1,0 +1,82 @@
+/* 侧边栏样式 */
+.sidebar {
+  width: 220px;
+  height: 100%;
+  background-color: #001529;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* Logo区域 */
+.sidebar .logo {
+  display: flex;
+  align-items: center;
+  padding: 20px 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar .logo i {
+  font-size: 28px;
+  color: #4a90e2;
+  margin-right: 10px;
+}
+
+.sidebar .logo span {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* 导航链接 */
+.sidebar .nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.sidebar .nav-links li {
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar .nav-links li a {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.sidebar .nav-links li a:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.sidebar .nav-links li.active a {
+  color: #fff;
+  background-color: #1890ff;
+}
+
+.sidebar .nav-links li a i {
+  margin-right: 10px;
+  font-size: 16px;
+  width: 16px;
+  text-align: center;
+}
+
+/* 系统信息 */
+.sidebar .system-info {
+  padding: 15px 20px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar .system-info span {
+  display: block;
+  margin-bottom: 5px;
+} 

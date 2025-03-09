@@ -1,0 +1,247 @@
+/* 历史记录页面样式 */
+.history-page {
+  width: 100%;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+/* 历史记录内容 */
+.history-content {
+  height: calc(100vh - 100px);
+}
+
+/* 加载中状态 */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #999;
+}
+
+.loading-container i {
+  font-size: 32px;
+  margin-bottom: 15px;
+  color: #1890ff;
+}
+
+/* 空历史记录状态 */
+.empty-history {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #999;
+}
+
+.empty-history i {
+  font-size: 48px;
+  margin-bottom: 15px;
+  color: #d9d9d9;
+}
+
+.empty-history p {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.empty-history small {
+  font-size: 12px;
+  color: #bbb;
+}
+
+/* 历史记录容器 */
+.history-container {
+  display: flex;
+  height: 100%;
+  gap: 20px;
+}
+
+/* 历史记录列表 */
+.history-list {
+  width: 350px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.history-item:hover {
+  background-color: #f9f9f9;
+}
+
+.history-item.active {
+  background-color: rgba(24, 144, 255, 0.05);
+  border-left: 3px solid #1890ff;
+}
+
+.history-item-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(24, 144, 255, 0.1);
+  color: #1890ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  font-size: 16px;
+}
+
+.history-item-content {
+  flex: 1;
+  overflow: hidden;
+}
+
+.history-item-title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.history-item-title .mac-address {
+  font-family: monospace;
+  font-weight: 500;
+  color: #333;
+}
+
+.history-item-title .manufacturer {
+  font-size: 12px;
+  color: #666;
+}
+
+.history-item-details {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #999;
+}
+
+.btn-delete {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  color: #999;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.2s;
+}
+
+.history-item:hover .btn-delete {
+  opacity: 1;
+}
+
+.btn-delete:hover {
+  background-color: #ff4d4f;
+  color: #fff;
+}
+
+/* 历史记录详情 */
+.history-details {
+  flex: 1;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+.no-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #999;
+}
+
+.no-selection i {
+  font-size: 32px;
+  margin-bottom: 15px;
+  color: #d9d9d9;
+}
+
+.details-container {
+  padding: 20px;
+}
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.details-header h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.details-timestamp {
+  font-size: 12px;
+  color: #999;
+}
+
+.details-section {
+  margin-bottom: 25px;
+}
+
+.details-section h4 {
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: #666;
+  display: flex;
+  align-items: center;
+}
+
+.details-section h4 i {
+  margin-right: 8px;
+  color: #1890ff;
+}
+
+.details-row {
+  display: flex;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #f0f0f0;
+}
+
+.details-row:last-child {
+  border-bottom: none;
+}
+
+.details-label {
+  width: 100px;
+  color: #666;
+}
+
+.details-value {
+  flex: 1;
+  font-weight: 500;
+} 

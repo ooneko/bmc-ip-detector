@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网络检测 - IPMI带外检测器</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/detection.css">
+    <link rel="stylesheet" href="css/status-info.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 侧边导航栏 -->
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo">
+                <h1>IPMI检测器</h1>
+            </div>
+            <ul class="nav-links">
+                <li class="active">
+                    <a href="detection.html">
+                        <i class="fas fa-network-wired"></i>
+                        <span>网络检测</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="history.html">
+                        <i class="fas fa-history"></i>
+                        <span>历史记录</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="help.html">
+                        <i class="fas fa-question-circle"></i>
+                        <span>帮助</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="system-info">
+                <span id="version">版本: 1.0.0</span>
+            </div>
+        </nav>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <header>
+                <div class="header-left">
+                    <div class="header-logo">
+                        <img src="images/logo.png" alt="Logo">
+                    </div>
+                    <div class="header-title">
+                        <h2>网络检测</h2>
+                    </div>
+                </div>
+            </header>
+
+            <div class="detection-content">
+                <div class="status-info">
+                    <div class="card">
+                        <div class="card-icon success">
+                            <i class="fas fa-ethernet"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>网络接口状态</h3>
+                            <p id="interface-status">选择网络设备</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon info">
+                            <i class="fas fa-fingerprint"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>当前MAC地址</h3>
+                            <p id="current-mac" class="mac-address">--:--:--:--:--:--</p>
+                            <small class="copy-indicator" id="mac-copy-hint">点击复制</small>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon warning">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>当前IP地址</h3>
+                            <p id="current-ip">--.--.--.--</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="steps-container">
+                    <div class="steps">
+                        <div class="step active" id="step1">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <div class="step-title">选择网络设备</div>
+                                <div class="step-desc">选择用于检测的网络适配器</div>
+                            </div>
+                        </div>
+                        <div class="step" id="step2">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <div class="step-title">连接服务器复制MAC</div>
+                                <div class="step-desc">连接服务器并获取MAC地址</div>
+                            </div>
+                        </div>
+                        <div class="step" id="step3">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <div class="step-title">连接交换机获取地址</div>
+                                <div class="step-desc">连接交换机获取DHCP地址</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-container">
+                    <!-- 步骤1内容：选择网络设备 -->
+                    <div class="panel active" id="panel1">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-desktop"></i> 选择网络设备</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="network-devices">
+                                <p>请选择用于检测的网络适配器：</p>
+                                <div class="network-device-list">
+                                    <div class="device-item">
+                                        <input type="radio" id="device1" name="network-device" checked>
+                                        <label for="device1">
+                                            <div class="device-info">
+                                                <span class="device-name">以太网</span>
+                                                <span class="device-details">Intel(R) Ethernet Connection</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="device-item">
+                                        <input type="radio" id="device2" name="network-device">
+                                        <label for="device2">
+                                            <div class="device-info">
+                                                <span class="device-name">Wi-Fi</span>
+                                                <span class="device-details">Intel(R) Wireless-AC</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="device-item">
+                                        <input type="radio" id="device3" name="network-device">
+                                        <label for="device3">
+                                            <div class="device-info">
+                                                <span class="device-name">USB 以太网适配器</span>
+                                                <span class="device-details">Realtek USB GbE Family Controller</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="network-status">
+                                <h4>网络接口状态</h4>
+                                <div class="status-item">
+                                    <div class="status-label">选择的网络接口：</div>
+                                    <div class="status-value" id="selected-interface">以太网</div>
+                                </div>
+                                <div class="status-item">
+                                    <div class="status-label">连接状态：</div>
+                                    <div class="status-value" id="device-status">等待检测...</div>
+                                </div>
+                            </div>
+
+                            <div class="action-buttons">
+                                <button class="btn primary" id="check-device">
+                                    <i class="fas fa-sync-alt"></i> 检测连接
+                                </button>
+                                <button class="btn secondary" id="next-step1" disabled>
+                                    <i class="fas fa-arrow-right"></i> 下一步
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 步骤2内容：连接服务器复制MAC -->
+                    <div class="panel" id="panel2">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-server"></i> 连接服务器复制MAC</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="connection-guide">
+                                <div class="connection-status">
+                                    <div class="status-badge" id="server-connection-status">
+                                        <i class="fas fa-plug"></i>
+                                        <span>等待连接</span>
+                                    </div>
+                                </div>
+                                <div class="guide-image">
+                                    <img src="images/connect-server.png" alt="连接服务器示意图">
+                                </div>
+                                <div class="guide-steps">
+                                    <p>请按照以下步骤操作：</p>
+                                    <ol>
+                                        <li>确保服务器已开机</li>
+                                        <li>使用网线连接服务器的IPMI网口</li>
+                                        <li>将网线另一端连接到您选择的网络接口</li>
+                                        <li>点击"检测连接"按钮</li>
+                                    </ol>
+                                </div>
+                            </div>
+
+                            <div class="server-info-container">
+                                <div class="server-info-section">
+                                    <h4>服务器连接信息</h4>
+                                    <div class="info-item">
+                                        <div class="info-label">连接状态：</div>
+                                        <div class="info-value" id="server-connection-text">未连接</div>
+                                    </div>
+                                    <div class="info-item">
+                                        <div class="info-label">MAC地址：</div>
+                                        <div class="info-value mac-address" id="server-mac">--:--:--:--:--:--</div>
+                                        <button class="btn-copy" id="copy-mac" title="复制到剪贴板">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <div class="info-item">
+                                        <div class="info-label">制造商：</div>
+                                        <div class="info-value" id="manufacturer">未知</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="scan-animation" id="mac-scan-animation">
+                                <div class="scan-icon">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" id="mac-progress"></div>
+                                </div>
+                                <div class="scan-status" id="scan-status">准备检测...</div>
+                            </div>
+
+                            <div class="action-buttons">
+                                <button class="btn primary" id="check-server-connection">
+                                    <i class="fas fa-plug"></i> 检测连接
+                                </button>
+                                <button class="btn secondary" id="previous-step2">
+                                    <i class="fas fa-arrow-left"></i> 上一步
+                                </button>
+                                <button class="btn secondary" id="next-step2" disabled>
+                                    <i class="fas fa-arrow-right"></i> 下一步
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 步骤3内容：连接交换机获取地址 -->
+                    <div class="panel" id="panel3">
+                        <div class="panel-header">
+                            <h3><i class="fas fa-network-wired"></i> 连接交换机获取地址</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="connection-guide">
+                                <div class="connection-status">
+                                    <div class="status-badge" id="switch-connection-status">
+                                        <i class="fas fa-ethernet"></i>
+                                        <span>等待连接</span>
+                                    </div>
+                                </div>
+                                <div class="guide-image">
+                                    <img src="images/connect-switch.png" alt="连接交换机示意图">
+                                </div>
+                                <div class="guide-steps">
+                                    <p>现在请按照以下步骤操作：</p>
+                                    <ol>
+                                        <li>断开服务器的网线连接</li>
+                                        <li>使用网线连接交换机端口</li>
+                                        <li>将网线另一端连接到您选择的网络接口</li>
+                                        <li>系统将自动使用服务器MAC地址请求DHCP</li>
+                                    </ol>
+                                </div>
+                            </div>
+
+                            <div class="mac-info-display">
+                                <h4>检测信息</h4>
+                                <div class="mac-info-row">
+                                    <div class="mac-info-label">使用MAC地址：</div>
+                                    <div class="mac-info-value" id="mac-for-dhcp">--:--:--:--:--:--</div>
+                                </div>
+                                <div class="mac-info-row">
+                                    <div class="mac-info-label">自动检测状态：</div>
+                                    <div class="mac-info-value" id="dhcp-detect-status">等待网络连接...</div>
+                                </div>
+                            </div>
+
+                            <div class="scan-animation" id="dhcp-scan-animation">
+                                <div class="scan-icon">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" id="dhcp-progress"></div>
+                                </div>
+                                <div class="scan-status" id="dhcp-status">准备检测DHCP地址...</div>
+                            </div>
+
+                            <div class="result-container" id="dhcp-result-container" style="display: none;">
+                                <h4>DHCP获取结果</h4>
+                                <div class="result-table">
+                                    <div class="result-row">
+                                        <div class="result-label">IP地址：</div>
+                                        <div class="result-value" id="ip-address">--.--.--.--</div>
+                                    </div>
+                                    <div class="result-row">
+                                        <div class="result-label">子网掩码：</div>
+                                        <div class="result-value" id="subnet-mask">--.--.--.--</div>
+                                    </div>
+                                    <div class="result-row">
+                                        <div class="result-label">默认网关：</div>
+                                        <div class="result-value" id="default-gateway">--.--.--.--</div>
+                                    </div>
+                                    <div class="result-row">
+                                        <div class="result-label">DHCP服务器：</div>
+                                        <div class="result-value" id="dhcp-server">--.--.--.--</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="action-buttons">
+                                <button class="btn secondary" id="previous-step3">
+                                    <i class="fas fa-arrow-left"></i> 上一步
+                                </button>
+                                <button class="btn primary" id="detect-dhcp">
+                                    <i class="fas fa-search"></i> 手动检测
+                                </button>
+                                <button class="btn success" id="save-result" disabled>
+                                    <i class="fas fa-save"></i> 保存结果
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/detection.js"></script>
+</body>
+</html> 

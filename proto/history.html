@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>历史记录 - IPMI带外检测器</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/history.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 侧边导航栏 -->
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo">
+                <h1>IPMI检测器</h1>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="detection.html">
+                        <i class="fas fa-network-wired"></i>
+                        <span>网络检测</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="history.html">
+                        <i class="fas fa-history"></i>
+                        <span>历史记录</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="settings.html">
+                        <i class="fas fa-cog"></i>
+                        <span>设置</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="help.html">
+                        <i class="fas fa-question-circle"></i>
+                        <span>帮助</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="system-info">
+                <span id="system-type"><i class="fas fa-desktop"></i> 系统类型</span>
+                <span id="version">版本: 1.0.0</span>
+            </div>
+        </nav>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <header>
+                <div class="header-title">
+                    <h2>历史记录</h2>
+                </div>
+                <div class="user-info">
+                    <span class="notification">
+                        <i class="fas fa-bell"></i>
+                    </span>
+                    <div class="user">
+                        <i class="fas fa-user-circle"></i>
+                        <span>管理员</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="history-content">
+                <div class="filters">
+                    <div class="search-box">
+                        <input type="text" placeholder="搜索MAC地址或IP...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="filter-options">
+                        <div class="filter">
+                            <label>日期范围:</label>
+                            <select>
+                                <option>全部时间</option>
+                                <option>今天</option>
+                                <option>最近7天</option>
+                                <option>最近30天</option>
+                                <option>自定义...</option>
+                            </select>
+                        </div>
+                        <div class="filter">
+                            <label>状态:</label>
+                            <select>
+                                <option>全部</option>
+                                <option>成功</option>
+                                <option>失败</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn secondary">
+                            <i class="fas fa-download"></i> 导出
+                        </button>
+                        <button class="btn danger">
+                            <i class="fas fa-trash"></i> 清空
+                        </button>
+                    </div>
+                </div>
+
+                <div class="records-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>时间</th>
+                                <th>MAC地址</th>
+                                <th>IP地址</th>
+                                <th>子网掩码</th>
+                                <th>制造商</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>2023-05-15 15:30:24</td>
+                                <td class="mac-address">00:1A:2B:3C:4D:5E</td>
+                                <td>192.168.1.100</td>
+                                <td>255.255.255.0</td>
+                                <td>Dell Inc.</td>
+                                <td><span class="status success">成功</span></td>
+                                <td class="actions">
+                                    <button class="action-btn view" title="查看详情">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn delete" title="删除">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>2023-05-14 11:45:36</td>
+                                <td class="mac-address">00:25:90:48:E1:7C</td>
+                                <td>192.168.1.101</td>
+                                <td>255.255.255.0</td>
+                                <td>Super Micro Computer</td>
+                                <td><span class="status success">成功</span></td>
+                                <td class="actions">
+                                    <button class="action-btn view" title="查看详情">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn delete" title="删除">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>2023-05-14 10:12:08</td>
+                                <td class="mac-address">00:25:90:48:E1:7C</td>
+                                <td>--</td>
+                                <td>--</td>
+                                <td>Super Micro Computer</td>
+                                <td><span class="status error">失败</span></td>
+                                <td class="actions">
+                                    <button class="action-btn view" title="查看详情">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn delete" title="删除">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>2023-05-10 09:20:15</td>
+                                <td class="mac-address">00:1B:21:55:38:DC</td>
+                                <td>192.168.1.102</td>
+                                <td>255.255.255.0</td>
+                                <td>Intel Corporate</td>
+                                <td><span class="status success">成功</span></td>
+                                <td class="actions">
+                                    <button class="action-btn view" title="查看详情">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn delete" title="删除">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>2023-05-08 16:40:52</td>
+                                <td class="mac-address">00:A0:C9:14:C8:29</td>
+                                <td>192.168.1.103</td>
+                                <td>255.255.255.0</td>
+                                <td>HP Enterprise</td>
+                                <td><span class="status success">成功</span></td>
+                                <td class="actions">
+                                    <button class="action-btn view" title="查看详情">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn delete" title="删除">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination">
+                    <button class="page-btn prev disabled">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <span class="page-ellipsis">...</span>
+                    <button class="page-btn">10</button>
+                    <button class="page-btn next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 详情模态框 -->
+            <div class="modal" id="details-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>记录详情</h3>
+                        <button class="close-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="detail-section">
+                            <h4>基本信息</h4>
+                            <div class="detail-row">
+                                <div class="detail-label">检测时间:</div>
+                                <div class="detail-value">2023-05-15 15:30:24</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-label">状态:</div>
+                                <div class="detail-value"><span class="status success">成功</span></div>
+                            </div>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4>服务器信息</h4>
+                            <div class="detail-row">
+                                <div class="detail-label">MAC地址:</div>
+                                <div class="detail-value mac-address">00:1A:2B:3C:4D:5E</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-label">制造商:</div>
+                                <div class="detail-value">Dell Inc.</div>
+                            </div>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4>DHCP信息</h4>
+                            <div class="detail-row">
+                                <div class="detail-label">IP地址:</div>
+                                <div class="detail-value">192.168.1.100</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-label">子网掩码:</div>
+                                <div class="detail-value">255.255.255.0</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-label">默认网关:</div>
+                                <div class="detail-value">192.168.1.1</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-label">DHCP服务器:</div>
+                                <div class="detail-value">192.168.1.254</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-label">租约时间:</div>
+                                <div class="detail-value">24小时</div>
+                            </div>
+                        </div>
+
+                        <div class="detail-section">
+                            <h4>系统环境</h4>
+                            <div class="detail-row">
+                                <div class="detail-label">操作系统:</div>
+                                <div class="detail-value">Windows 10</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="detail-label">网络接口:</div>
+                                <div class="detail-value">以太网</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn secondary">
+                            <i class="fas fa-file-export"></i> 导出
+                        </button>
+                        <button class="btn primary close-modal">
+                            <i class="fas fa-check"></i> 确定
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/history.js"></script>
+</body>
+</html> 

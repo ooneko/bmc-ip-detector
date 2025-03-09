@@ -1,0 +1,342 @@
+/* 设置页面样式 */
+.settings-content {
+    display: flex;
+    gap: 20px;
+}
+
+/* 设置导航 */
+.settings-nav {
+    width: 220px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    flex-shrink: 0;
+}
+
+.settings-nav ul {
+    padding: 10px 0;
+}
+
+.settings-nav li {
+    padding: 12px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.settings-nav li i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+    color: var(--gray-color);
+}
+
+.settings-nav li:hover {
+    background-color: #f8f9fa;
+}
+
+.settings-nav li.active {
+    background-color: #f0f7fc;
+    color: var(--primary-color);
+    font-weight: 500;
+    border-left: 3px solid var(--primary-color);
+}
+
+.settings-nav li.active i {
+    color: var(--primary-color);
+}
+
+/* 设置面板 */
+.settings-panels {
+    flex: 1;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.settings-panel {
+    display: none;
+    padding: 20px;
+}
+
+.settings-panel.active {
+    display: block;
+}
+
+.settings-panel h3 {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 18px;
+}
+
+/* 设置区块 */
+.settings-section {
+    margin-bottom: 30px;
+}
+
+.settings-section h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: var(--dark-color);
+}
+
+/* 设置项 */
+.setting-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.setting-label {
+    width: 180px;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+.setting-control {
+    flex: 1;
+    min-width: 200px;
+}
+
+.setting-desc {
+    width: 100%;
+    margin-top: 5px;
+    margin-left: 180px;
+    font-size: 12px;
+    color: #666;
+}
+
+/* 输入控件样式 */
+.setting-control select,
+.setting-control input[type="text"],
+.setting-control input[type="number"] {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+}
+
+.setting-control select:focus,
+.setting-control input[type="text"]:focus,
+.setting-control input[type="number"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+/* 开关按钮 */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--primary-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px);
+}
+
+.slider.round {
+    border-radius: 24px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* 路径输入 */
+.path-input {
+    display: flex;
+    gap: 5px;
+}
+
+.path-input input {
+    flex: 1;
+}
+
+.btn-sm {
+    padding: 8px 10px;
+    font-size: 14px;
+}
+
+/* 主题选择器 */
+.theme-selector {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.theme-option {
+    text-align: center;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+}
+
+.theme-option:hover {
+    opacity: 1;
+}
+
+.theme-option.active {
+    opacity: 1;
+}
+
+.theme-preview {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+}
+
+.theme-option.active .theme-preview {
+    border-color: var(--primary-color);
+}
+
+.theme-option span {
+    font-size: 12px;
+    display: block;
+}
+
+/* 关于页面 */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+}
+
+.app-logo img {
+    width: 120px;
+    height: 120px;
+}
+
+.app-info {
+    max-width: 600px;
+}
+
+.app-info h2 {
+    margin-bottom: 5px;
+}
+
+.version {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.description {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.copyright {
+    font-size: 12px;
+    color: #666;
+}
+
+.system-details {
+    width: 100%;
+    max-width: 600px;
+    background-color: #f8f9fa;
+    padding: 15px 20px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.detail-row {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.detail-row:last-child {
+    margin-bottom: 0;
+}
+
+.detail-label {
+    width: 100px;
+    font-weight: 500;
+    color: #666;
+}
+
+/* 按钮组样式 */
+.setting-control .action-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .settings-content {
+        flex-direction: column;
+    }
+    
+    .settings-nav {
+        width: 100%;
+    }
+    
+    .settings-nav ul {
+        display: flex;
+        overflow-x: auto;
+        padding: 10px;
+    }
+    
+    .settings-nav li {
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+    
+    .setting-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .setting-label {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    .setting-desc {
+        margin-left: 0;
+    }
+} 

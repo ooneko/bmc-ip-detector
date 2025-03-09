@@ -1,0 +1,138 @@
+/* 帮助页面样式 */
+.help-page {
+  width: 100%;
+}
+
+.help-content {
+  padding-bottom: 30px;
+}
+
+/* 帮助部分 */
+.help-section {
+  margin-bottom: 30px;
+}
+
+.help-section h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* 使用指南 */
+.guide-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.guide-step {
+  display: flex;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  background-color: #1890ff;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.step-content {
+  flex: 1;
+  padding: 15px 20px;
+}
+
+.step-content h4 {
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.step-content p {
+  margin: 0;
+  color: #666;
+}
+
+/* FAQ部分 */
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.faq-item {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.faq-question {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.faq-question i {
+  color: #999;
+  transition: all 0.3s;
+}
+
+.faq-answer {
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-item.expanded .faq-answer {
+  padding: 0 20px 15px;
+  max-height: 500px;
+}
+
+.faq-answer p {
+  margin: 0 0 10px;
+  color: #666;
+}
+
+.faq-answer p:last-child {
+  margin-bottom: 0;
+}
+
+/* 关于部分 */
+.about-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.about-info, .contact-info {
+  flex: 1;
+  min-width: 250px;
+}
+
+.about-info p, .contact-info p {
+  margin: 0 0 10px;
+  color: #666;
+}
+
+.contact-info i {
+  margin-right: 8px;
+  color: #1890ff;
+} 

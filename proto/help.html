@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>帮助 - IPMI带外检测器</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/help.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 侧边导航栏 -->
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo">
+                <h1>IPMI检测器</h1>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="detection.html">
+                        <i class="fas fa-network-wired"></i>
+                        <span>网络检测</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="history.html">
+                        <i class="fas fa-history"></i>
+                        <span>历史记录</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="settings.html">
+                        <i class="fas fa-cog"></i>
+                        <span>设置</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="help.html">
+                        <i class="fas fa-question-circle"></i>
+                        <span>帮助</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="system-info">
+                <span id="version">版本: 1.0.0</span>
+            </div>
+        </nav>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <header>
+                <div class="header-left">
+                    <div class="header-logo">
+                        <img src="images/logo.png" alt="Logo">
+                    </div>
+                    <div class="header-title">
+                        <h2>帮助中心</h2>
+                    </div>
+                </div>
+            </header>
+
+            <div class="help-content">
+                <div class="help-nav">
+                    <div class="search-box">
+                        <input type="text" placeholder="搜索帮助...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="nav-section">
+                        <h4>基础使用</h4>
+                        <ul>
+                            <li class="active" data-target="getting-started">
+                                <i class="fas fa-play"></i> 入门指南
+                            </li>
+                            <li data-target="connection-guide">
+                                <i class="fas fa-plug"></i> 连接指南
+                            </li>
+                            <li data-target="detection-process">
+                                <i class="fas fa-tasks"></i> 检测流程
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-section">
+                        <h4>高级主题</h4>
+                        <ul>
+                            <li data-target="network-concepts">
+                                <i class="fas fa-network-wired"></i> 网络概念
+                            </li>
+                            <li data-target="ipmi-explanation">
+                                <i class="fas fa-server"></i> IPMI简介
+                            </li>
+                            <li data-target="troubleshooting">
+                                <i class="fas fa-wrench"></i> 故障排除
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-section">
+                        <h4>参考资料</h4>
+                        <ul>
+                            <li data-target="faq">
+                                <i class="fas fa-question"></i> 常见问题
+                            </li>
+                            <li data-target="contact-support">
+                                <i class="fas fa-headset"></i> 联系支持
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="help-panels">
+                    <!-- 入门指南 -->
+                    <div class="help-panel active" id="getting-started">
+                        <h3>入门指南</h3>
+                        
+                        <div class="help-section">
+                            <h4>什么是IPMI带外检测器？</h4>
+                            <p>IPMI带外检测器是一款用于服务器管理的实用工具，可帮助网络管理员和系统管理员快速获取服务器的IPMI网络信息。该工具通过模拟服务器MAC地址向DHCP服务器请求IP地址，无需直接访问服务器操作系统。</p>
+                            
+                            <div class="feature-grid">
+                                <div class="feature-card">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                    <div class="feature-content">
+                                        <h5>MAC地址检测</h5>
+                                        <p>自动检测服务器的MAC地址</p>
+                                    </div>
+                                </div>
+                                <div class="feature-card">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-broadcast-tower"></i>
+                                    </div>
+                                    <div class="feature-content">
+                                        <h5>DHCP请求</h5>
+                                        <p>使用MAC地址请求DHCP分配IP</p>
+                                    </div>
+                                </div>
+                                <div class="feature-card">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-desktop"></i>
+                                    </div>
+                                    <div class="feature-content">
+                                        <h5>跨平台支持</h5>
+                                        <p>支持Windows、Linux和macOS</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="help-section">
+                            <h4>系统要求</h4>
+                            <div class="requirements-table">
+                                <div class="req-row">
+                                    <div class="req-header">Windows</div>
+                                    <div class="req-content">Windows 7 SP1或更高版本</div>
+                                </div>
+                                <div class="req-row">
+                                    <div class="req-header">macOS</div>
+                                    <div class="req-content">macOS 10.13或更高版本</div>
+                                </div>
+                                <div class="req-row">
+                                    <div class="req-header">Linux</div>
+                                    <div class="req-content">Ubuntu 18.04、CentOS 7或其他主流发行版</div>
+                                </div>
+                                <div class="req-row">
+                                    <div class="req-header">权限</div>
+                                    <div class="req-content">需要管理员/root权限以访问网络接口</div>
+                                </div>
+                                <div class="req-row">
+                                    <div class="req-header">网络</div>
+                                    <div class="req-content">一个可用的网络接口</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="help-section">
+                            <h4>快速入门步骤</h4>
+                            <div class="steps-guide">
+                                <div class="step-item">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h5>准备工作</h5>
+                                        <p>确认您的计算机有一个可用的网络接口，并以管理员/root权限运行应用程序。</p>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h5>连接服务器</h5>
+                                        <p>使用网线将您的计算机直接连接到服务器的IPMI网口。</p>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h5>获取MAC地址</h5>
+                                        <p>在应用程序中，进入"网络检测"页面，按照步骤获取服务器MAC地址。</p>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h5>连接交换机</h5>
+                                        <p>断开服务器连接，将您的计算机连接到网络交换机。</p>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-number">5</div>
+                                    <div class="step-content">
+                                        <h5>获取IP地址</h5>
+                                        <p>使用已获取的MAC地址，请求DHCP服务器分配IP地址。</p>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-number">6</div>
+                                    <div class="step-content">
+                                        <h5>查看结果</h5>
+                                        <p>应用程序将显示获取到的IP地址和相关网络配置信息。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 连接指南 -->
+                    <div class="help-panel" id="connection-guide">
+                        <h3>连接指南</h3>
+                        
+                        <div class="help-section">
+                            <h4>服务器连接</h4>
+                            <p>正确连接服务器是成功获取MAC地址的关键步骤。请按照下面的指南操作：</p>
+                            
+                            <div class="connection-diagram">
+                                <img src="images/server-connection.png" alt="服务器连接示意图">
+                                <div class="diagram-caption">服务器连接示意图</div>
+                            </div>
+                            
+                            <div class="note-box">
+                                <div class="note-icon"><i class="fas fa-info-circle"></i></div>
+                                <div class="note-content">
+                                    <strong>提示：</strong> 大多数服务器的IPMI端口都有明确的标识，通常标记为"IPMI"、"MGT"或"MGMT"。
+                                </div>
+                            </div>
+                            
+                            <h5>详细步骤</h5>
+                            <ol class="detailed-steps">
+                                <li>确保服务器已开机，但不需要登录到操作系统。</li>
+                                <li>找到服务器上的IPMI管理端口（通常位于服务器后部）。</li>
+                                <li>使用一根网线将您的计算机网口与服务器的IPMI端口连接。</li>
+                                <li>等待几秒钟，让网络连接建立。</li>
+                                <li>检查您计算机上的网络接口状态，确认已建立连接。</li>
+                            </ol>
+                            
+                            <div class="warning-box">
+                                <div class="warning-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                                <div class="warning-content">
+                                    <strong>注意：</strong> 确保连接的是正确的IPMI端口，而不是普通网络端口。
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="help-section">
+                            <h4>交换机连接</h4>
+                            <p>在获取到服务器MAC地址后，需要连接到交换机以获取DHCP分配的IP地址：</p>
+                            
+                            <div class="connection-diagram">
+                                <img src="images/switch-connection.png" alt="交换机连接示意图">
+                                <div class="diagram-caption">交换机连接示意图</div>
+                            </div>
+                            
+                            <h5>详细步骤</h5>
+                            <ol class="detailed-steps">
+                                <li>断开服务器与您计算机之间的网线连接。</li>
+                                <li>使用同一根网线将您的计算机与网络交换机连接。</li>
+                                <li>确保交换机上的端口已启用，且连接到包含DHCP服务器的网络。</li>
+                                <li>等待网络连接建立。</li>
+                                <li>进入应用程序，使用之前获取的MAC地址请求DHCP分配IP地址。</li>
+                            </ol>
+                            
+                            <div class="note-box">
+                                <div class="note-icon"><i class="fas fa-info-circle"></i></div>
+                                <div class="note-content">
+                                    <strong>提示：</strong> 如果您的网络使用VLAN隔离，请确保连接到正确的VLAN，或者咨询网络管理员获取帮助。
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 其他面板内容省略 -->
+                    <div class="help-panel" id="detection-process">
+                        <h3>检测流程</h3>
+                        <p>这里将详细介绍检测流程的具体步骤和技术细节...</p>
+                    </div>
+                    
+                    <div class="help-panel" id="network-concepts">
+                        <h3>网络概念</h3>
+                        <p>这里将介绍相关的网络概念和原理...</p>
+                    </div>
+                    
+                    <div class="help-panel" id="ipmi-explanation">
+                        <h3>IPMI简介</h3>
+                        <p>这里将介绍IPMI技术的基本概念和工作原理...</p>
+                    </div>
+                    
+                    <div class="help-panel" id="troubleshooting">
+                        <h3>故障排除</h3>
+                        <p>这里将提供常见问题的解决方案...</p>
+                    </div>
+                    
+                    <div class="help-panel" id="faq">
+                        <h3>常见问题</h3>
+                        <p>这里将回答用户常见的问题...</p>
+                    </div>
+                    
+                    <div class="help-panel" id="contact-support">
+                        <h3>联系支持</h3>
+                        <p>这里将提供获取技术支持的方式...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/help.js"></script>
+</body>
+</html> 
