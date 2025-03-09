@@ -51,7 +51,7 @@ IPMI带外检测器的工作原理如下：
 4. 将程序打包成可直接执行的二进制，放在release中供大家下载使用。
 
 ## 许可证
-本项目采用MIT许可证。详情请参阅LICENSE文件。
+本项目采用apache2.0许可证。详情请参阅LICENSE文件。
 
 ## 开发者
 binhong.hua@gmail.com
